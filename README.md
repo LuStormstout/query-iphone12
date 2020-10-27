@@ -7,5 +7,3 @@
 ⚙️ PHP > 7
 
 🏎️ php /... you path .../reserveIphone12Pro.php
-
-还没有测试好不好用！！！
