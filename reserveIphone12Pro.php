@@ -15,6 +15,10 @@ $models = [
     'MGLK3CH/A' => '512GB 银色',
 ];
 
+/**
+ * @param string $url
+ * @return bool|string
+ */
 function curlGet($url = "https://reserve-prime.apple.com/CN/zh_CN/reserve/A/availability.json")
 {
     $curl = curl_init();
@@ -26,6 +30,10 @@ function curlGet($url = "https://reserve-prime.apple.com/CN/zh_CN/reserve/A/avai
     return $result;
 }
 
+/**
+ * @param $obj
+ * @return array|null
+ */
 function objectToArray($obj)
 {
     $obj = (array)$obj;
@@ -56,26 +64,28 @@ while (true) {
         $wanxiangcheng = $result['stores']['R502'];
         $taiguli = $result['stores']['R580'];
 
-        foreach ($wanxiangcheng as $item) {
-            if ($item['availability']['unlocked']) {
-                echo "===========================================================================" . "\n";
-                echo date('Y-m-d H:i:s') . '万象城有 📱 可以预约了 🔥🔥🔥🔥🔥🔥' . "\n";
-                echo "===========================================================================" . "\n";
+        foreach ($wanxiangcheng as $model => $status) {
+            if ($status['availability']['unlocked']) {
+                echo "=============================================================================================" . "\n";
+                echo date('Y-m-d H:i:s') . '万象城有 📱 可以预约了 🔥🔥🔥🔥🔥🔥' . $models[$model] . "\n";
+                echo "=============================================================================================" . "\n";
             }
         }
 
-        foreach ($taiguli as $item) {
-            if ($item['availability']['unlocked']) {
-                echo "===========================================================================" . "\n";
-                echo date('Y-m-d H:i:s') . '太古里有 📱 可以预约了 🔥🔥🔥🔥🔥🔥' . "\n";
-                echo "===========================================================================" . "\n";
+        foreach ($taiguli as $model => $status) {
+            if ($status['availability']['unlocked']) {
+                echo "=============================================================================================" . "\n";
+                echo date('Y-m-d H:i:s') . '太古里有 📱 可以预约了 🔥🔥🔥🔥🔥🔥' . $models[$model] . "\n";
+                echo "=============================================================================================" . "\n";
             }
         }
 
-        foreach ($result['stores'] as $key => $value) {
-            foreach ($value as $k => $v) {
-                if ($v['availability']['unlocked']) {
-                    echo date('Y-m-d H:i:s') . ' 📢📢📢 🔥🔥🔥🔥🔥🔥 有 📱 可以预约了 ' . $storeArray[$key] . ' - ' . $models[$k] . "\n";
+        if (isset($result) && array_key_exists('stores', $result)) {
+            foreach ($result['stores'] as $key => $value) {
+                foreach ($value as $k => $v) {
+                    if ($v['availability']['unlocked']) {
+                        echo date('Y-m-d H:i:s') . ' 📢📢📢 🔥🔥🔥🔥🔥🔥 有 📱 可以预约了 ' . $storeArray[$key] . ' - ' . $models[$k] . "\n";
+                    }
                 }
             }
         }
@@ -85,5 +95,5 @@ while (true) {
         exit;
     }
 
-    sleep(10);
+    sleep(5);
 }
