@@ -9,6 +9,7 @@
 
 #### 运行环境
  + 需要安装有 PHP 的电脑且版本 > 5.5
+ + 需要 php-curl 扩展
  + windows 用户可以安装 phpstudy 或者 wamp
  + [phpstudy 下载](https://www.xp.cn/download.html)
  + [WampServer 下载](https://www.wampserver.com/)
