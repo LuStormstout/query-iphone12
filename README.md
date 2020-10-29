@@ -13,7 +13,7 @@
  + [phpstudy 下载](https://www.xp.cn/download.html)
  + [WampServer 下载](https://www.wampserver.com/)
  + macOS 用户推荐先去安装一个 [Homebrew](https://brew.sh/index_zh-cn)
- + 然后执行在终端应用里面执行 brew install php@7.3
+ + 然后执行在「终端」应用里面执行 brew install php@7.3
 
 #### 执行
  + php /... you path .../reserveIphone12Pro.php
