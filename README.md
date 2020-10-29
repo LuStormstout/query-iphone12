@@ -8,7 +8,6 @@
 
 
 #### 运行环境
---
  + 需要安装有 PHP 的电脑且版本 > 5.5
  + windows 用户可以安装 phpstudy 或者 wamp
  + [phpstudy 下载](https://www.xp.cn/download.html)
@@ -17,5 +16,4 @@
  + 然后执行在终端应用里面执行 brew install php@7.3
 
 #### 执行
---
  + php /... you path .../reserveIphone12Pro.php
