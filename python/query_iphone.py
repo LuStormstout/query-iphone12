@@ -43,11 +43,15 @@ urls = {
 
 iphone_url = 'https://reserve-prime.apple.com/CN/zh_CN/reserve/A/availability.json'
 stores_url = 'https://reserve-prime.apple.com/CN/zh_CN/reserve/A/stores.json'
-
+model = int()
 while True:
     print('1、iPhone 12 Pro')
     print('2、iPhone 12 Pro Max')
-    model = int(input('请输入手机型号编号:'))
+    try:
+        model = int(input('请输入手机型号编号:'))
+    except:
+        print('请输入正确的编号')
+        continue
     if model == 1:
         iphone_url = urls[model]['iphone12_pro_url']
         stores_url = urls[model]['iphone12_pro_stores_url']
@@ -66,17 +70,6 @@ for store in stores['stores']:
     stores_list.append(store)
 
 
-def print_waiting(seconds=3):
-    print('获取数据失败！正在重新加载')
-    time.sleep(1)
-    print('...')
-    time.sleep(1)
-    print('..')
-    time.sleep(1)
-    print('.')
-    time.sleep(seconds)
-
-
 def get_store_info(store_code):
     for item in stores_list:
         if store_code == item['storeNumber']:
@@ -87,7 +80,11 @@ while True:
     try:
         result = requests.get(iphone_url)
     except:
-        print_waiting()
+        try:
+            time.sleep(3)
+        except KeyboardInterrupt:
+            print('程序已经终止')
+            exit()
         continue
     result = result.json()
 
@@ -99,7 +96,11 @@ while True:
                     print(
                         f"📢 有 iPhone 可以预约了 {store_info['city']} - {store_info['storeName']} - {iphone_models[model]}")
     else:
-        print_waiting()
+        try:
+            time.sleep(3)
+        except KeyboardInterrupt:
+            print('程序已经终止')
+            exit()
         continue
 
     time.sleep(3)
