@@ -7,15 +7,15 @@
 
 #### 执行
  + iPhone 12 Pro
-    ```
+    ```shell script
     php /... you path .../reserveIphone12Pro/php/reserveIphone12Pro.php
     ```
  +  iPhone 12 Pro Max
-    ```
+    ```shell script
     php /... you path .../reserveIphone12Pro/php/reserveIphone12ProMax.php
     ```
  + Python 版本 （待测试）
-    ```
+    ```shell script
     python / ... you path ... /reserveIphone12Pro/python/query_iphone.py
     ```
 ### 运行截图
