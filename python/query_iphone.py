@@ -67,6 +67,7 @@ for store in stores['stores']:
 
 
 def print_waiting(seconds=3):
+    print('获取数据失败！正在重新加载')
     time.sleep(1)
     print('...')
     time.sleep(1)
@@ -86,7 +87,6 @@ while True:
     try:
         result = requests.get(iphone_url)
     except:
-        print('获取数据失败！正在重新加载')
         print_waiting()
         continue
     result = result.json()
@@ -99,7 +99,6 @@ while True:
                     print(
                         f"📢 有 iPhone 可以预约了 {store_info['city']} - {store_info['storeName']} - {iphone_models[model]}")
     else:
-        print('获取数据失败！正在重新加载')
         print_waiting()
         continue
 
