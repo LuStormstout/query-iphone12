@@ -64,25 +64,6 @@ while (true) {
 
         if (isset($result) && array_key_exists('stores', $result)) {
 
-            $wanxiangcheng = $result['stores']['R502'];
-            $taiguli = $result['stores']['R580'];
-
-            foreach ($wanxiangcheng as $model => $status) {
-                if ($status['availability']['unlocked']) {
-                    echo "=============================================================================================" . "\n";
-                    echo date('Y-m-d H:i:s') . '万象城有 📱 可以预约了 🔥🔥🔥🔥🔥🔥' . $models[$model] . "\n";
-                    echo "=============================================================================================" . "\n";
-                }
-            }
-
-            foreach ($taiguli as $model => $status) {
-                if ($status['availability']['unlocked']) {
-                    echo "=============================================================================================" . "\n";
-                    echo date('Y-m-d H:i:s') . '太古里有 📱 可以预约了 🔥🔥🔥🔥🔥🔥' . $models[$model] . "\n";
-                    echo "=============================================================================================" . "\n";
-                }
-            }
-
             foreach ($result['stores'] as $key => $value) {
                 foreach ($value as $k => $v) {
                     if ($v['availability']['unlocked']) {
